@@ -41,11 +41,6 @@ public class EmployeeController {
 	public static final String RESET = "system/user/reset";
 
 
-	/**
-	 * 修订
-	 *
-	 * @return
-	 */
 	//进入用户列表页面
 	@RequestMapping("/showEmp.action")
 	public String selAllEmployee(){
