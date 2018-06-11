@@ -56,7 +56,7 @@
                 </div>
             </div>
 
-            <input type="text" name="id" id="employeeNum" value="${employee.id}"/>
+            <input type="hidden" name="id" id="employeeNum" value="${employee.id}"/>
             <div class="tabCon">
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>原密码：</label>
