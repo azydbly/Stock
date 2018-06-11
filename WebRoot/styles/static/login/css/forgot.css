@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+body {margin: 0px; padding:0px; font-family:"微软雅黑", Arial, "Trebuchet MS", Verdana, Georgia,Baskerville,Palatino,Times; font-size:16px;}
+#page{width:900px; padding:20px 20px 40px 20px; margin-top:300px; margin-left:auto; margin-right:auto;border-style:dashed;border-color:#e4e4e4;
+	line-height:30px;background:url(sorry.png) no-repeat right;}
+
+#sendEmail{width: 110px;height: 37px;background: #0e90d2;color:white;border: 0px}
+
+label{ font-weight: bold;}
+
+html {
+	overflow-y: hidden;
+}
+body {
+	margin: 0;
+	height: 100%;
+}
+
+
+@-ms-viewport {
+width:device-width
+}
+html {
+	font-size: 50px;
+	-webkit-tap-highlight-color: transparent;
+	height: 100%;
+	min-width: 320px;
+	overflow-x: hidden
+}
+body {
+	font-family: "Microsoft YaHei";
+	font-size: .28em;
+	line-height: 1;
+	color: #333;
+	background-color: white;
+}
+body {
+	height: 100%;
+	background: #16a085;
+	overflow: hidden;
+}
+canvas {
+	z-index: -1;
+	position: absolute;
+}

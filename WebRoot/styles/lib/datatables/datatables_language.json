@@ -1,0 +1,22 @@
+{
+    "sProcessing":   "正在获取数据，请稍后...",
+    "sLengthMenu":   "每页显示 _MENU_ 条记录",
+    "sZeroRecords":  "<strong>没有您要的内容，看点别的？！！</strong>",
+    "sInfo":         "从 _START_ 到  _END_ 条记录 总记录数为 _TOTAL_ 条",
+    "sInfoEmpty":    "暂无相关数据",
+    "sInfoFiltered": "",
+    "sSearch":       "搜索:",
+    "sUrl":          "",
+    "sEmptyTable":     "表中数据为空",
+    "sLoadingRecords": "载入中...",
+    "oPaginate": {
+        "sFirst" : "首页",
+        "sPrevious" : "上一页",
+        "sNext" : "下一页",
+        "sLast" : "末页"
+    },
+    "oAria": {
+        "sSortAscending":  ": 以升序排列此列",
+        "sSortDescending": ": 以降序排列此列"
+    }
+}

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/other,resources,src/logback.xml,WebRoot/login.jsp,src/ehcache.xml,WebRoot/error,WebRoot/styles,WebRoot/WEB-INF/site
+validator.Unchecked=

@@ -1,0 +1,25 @@
+@charset "utf-8";
+
+/* DataTables 左下角数据显示 */
+#DataTables_Table_0_info{
+	padding-top: 0;
+}
+
+/* 选择每页显示个数的下拉框 */
+#DataTables_Table_0_length{
+	padding-left: 30px;
+	/* position:fixed;
+    bottom:0;  */
+}
+
+table> tbody> tr> td {
+	text-align: center !important;
+}
+
+table> tbody> tr> td:last-child> a {
+	padding:5px;
+}
+
+/* 下拉框字体 */
+select option {font-size:13px;}
+

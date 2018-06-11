@@ -1,0 +1,94 @@
+@charset "utf-8";
+
+/* 菜单图标 */
+#iconContent li {
+	display: inline-block;
+	float: left;
+	margin: 5px;
+	cursor: pointer;
+	width: 24px;
+	height: 24px;
+	line-height: 24px;
+	text-align: center;
+	font-size: 20px;
+}
+
+#iconContent li:hover {
+	background-color: #009688;
+}
+
+/* 下拉框样式 */
+.menuContent {
+	display: none;
+	position: absolute;
+	z-index: 9999;
+	border: 1px solid;
+	border-radius: 3px;
+	background-color: white;
+}
+
+.view{
+	color: #0e90d2;
+	cursor: pointer;
+	border-color: transparent;
+	background-color: transparent;
+}
+.view:hover{
+	color: rgb(9,95,138);
+	background-color: transparent;
+	text-decoration: underline;
+}
+
+
+/* list 宽度  */
+.list_a{ width: 3.5%}
+.list_b{ width: 10%}
+.list_c{ width: 15%}
+.list_d{ width: 18%}
+.list_e{ width: 20%}
+.list_f{ width: 6%}
+
+
+
+/* 设置滚动条样式  */
+/* chrome、safari私有属性样式  */
+::-webkit-scrollbar-track {
+ background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar {
+ width: 6px;
+ background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+ background-color: #999;
+}
+
+/* 火狐浏览器私有属性样式 */
+::-moz-scrollbar-track {
+ background-color: #F5F5F5;
+}
+
+::-moz-scrollbar {
+ width: 6px;
+ background-color: #F5F5F5;
+}
+
+::-moz-scrollbar-thumb {
+ background-color: #999;
+}
+
+/* IE浏览器私有属性样式  */
+::-ms-scrollbar-track {
+ background-color: #F5F5F5;
+}
+
+::-ms-scrollbar {
+ width: 6px;
+ background-color: #F5F5F5;
+}
+
+::-ms-scrollbar-thumb {
+ background-color: #999;
+}
