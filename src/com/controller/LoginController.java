@@ -1,5 +1,7 @@
 package com.controller;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -13,8 +15,8 @@ import com.service.EmployeeService;
 import com.system.util.MD5Util;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.*;
 import java.util.UUID;
-import java.io.File;
 
 @Controller
 public class LoginController {
@@ -62,7 +64,6 @@ public class LoginController {
 	//更该个人信息（资料，密码，头像）
 	@RequestMapping("/updEmployeeById.action")
 	public void updatePasswordById(Employee employee, int id, String newPassword, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception{
-        System.out.println("进入");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
@@ -78,7 +79,6 @@ public class LoginController {
 			response.getWriter().print("passwordtrue");
 		//更改个人信息
 		}else if("".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && (!e.getLoginName().equals(employee.getLoginName()) || !e.getTelphone().equals(employee.getTelphone()) || !e.getEmail().equals(employee.getEmail()) || !employee.getRemark().equals(e.getRemark()))){
-            System.out.println("=================");
 		    int a = employeeService.updEmployeeByIdNoFile(employee);
             System.out.println("----------" + a);
 			Employee employee1 = employeeService.selById(Integer.valueOf(employee.getId()));
@@ -134,5 +134,47 @@ public class LoginController {
 		// 销毁session
 		request.getSession().invalidate();
 		response.getWriter().print("true");
+	}
+
+
+	//显示主页
+	@RequestMapping("/welcome.action")
+	public String welcome(){
+		return "welcome";
+	}
+
+	//个人信息
+	@RequestMapping("/personal.action")
+	public String personal(){
+		return "personalInformation";
+	}
+
+	//显示头像
+	@RequestMapping("/showFaces.action")
+	protected void service(HttpServletRequest request,HttpSession session, HttpServletResponse response) throws ServletException, IOException {
+		OutputStream os = response.getOutputStream();
+		ServletContext sc = request.getSession().getServletContext();
+		//显示服务器上的图片需要获取在磁盘上的绝对路径
+		File file = new File(sc.getRealPath("/") + "WEB-INF/site/upload/picture/" + ((Employee) session.getAttribute("employee")).getUrl());
+		FileInputStream fips = new FileInputStream(file);
+		byte[] btImg = readStream(fips);
+		os.write(btImg);
+		os.flush();
+	}
+
+	/**
+	 * 读取管道中的流数据
+	 */
+	public byte[] readStream(InputStream inStream) {
+		ByteArrayOutputStream bops = new ByteArrayOutputStream();
+		int data = -1;
+		try {
+			while((data = inStream.read()) != -1){
+				bops.write(data);
+			}
+			return bops.toByteArray();
+		}catch(Exception e){
+			return null;
+		}
 	}
 }
