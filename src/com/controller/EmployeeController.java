@@ -41,7 +41,7 @@ public class EmployeeController {
 	public static final String RESET = "system/user/reset";
 
 
-	//进入用户列表页面‘路口监控i
+	//进入用户列表页面
 	@RequestMapping("/showEmp.action")
 	public String selAllEmployee(){
 		return LIST;
