@@ -8,13 +8,18 @@
 <link rel="Bookmark" href="${ctxsty}/favicon/favicon.ico" >
 <link rel="Shortcut Icon" href="${ctxsty}/favicon/favicon.ico" />
 <link rel="stylesheet" href="${ctxsty}/static/login/css/login1.css" />
+<link rel="stylesheet" href="${ctxsty}/static/yp/css/SpecialEffect.css" />
+<link rel="stylesheet" type="text/css" href="${ctxsty}/lib/Hui-iconfont/1.0.8/iconfont.css"/>
 <script type="text/javascript" src="${ctxsty}/lib/jquery/1.9.1/jquery.min.js"></script>
 <script src="${ctxsty}/static/login/particleground/js/jquery.particleground.min.js"></script>
 <script src="${ctxsty}/static/login/js/login1.js"></script>
 </head>
 <body>
 <form action="login.action" method="post">
-	<dl class="admin_login">
+	<div style="width: 50px; height: 50px; margin-top: 10px; margin-left: 10px;" id="text" class="hui-fadeinB">
+		<a href="index.jsp" title="返回首页"><i style="color: #FFFFFF; font-size:30px;" class="Hui-iconfont">&#xe625;</i></a>
+	</div>
+	<dl class="admin_login hui-fadeinB">
 		<dt>
 			<strong>承德老酒库存系统</strong> <em>Chengde Old Wine System</em>
 		</dt>

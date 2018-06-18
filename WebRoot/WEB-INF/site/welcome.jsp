@@ -8,6 +8,7 @@
 <title>我的桌面</title>
 </head>
 <body>
+<%--<script type="text/javascript" src="${ctxsty}/static/yp/js/te.js" count="200" zindex="-2" opacity="0.5" color="47,135,193" />--%>
 <div class="page-container">
 	<p class="f-20 text-success">欢迎使用承德老酒库存管理系统</p>
 	<table class="table table-border table-bordered table-bg mt-20">
@@ -111,7 +112,7 @@
 			</tr>
 			<tr>
 				<td>当前Session数量 </td>
-				<td><%-- <%=session.count %> --%>500</td>
+				<td><%=session.getCreationTime() %></td>
 			</tr>
 			<tr>
 				<td>当前SessionID </td>
@@ -152,11 +153,6 @@
 	
 <footer class="footer mt-20">
 	<div class="container">
-		<!-- <p>联系方式:
-			<a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=614749555&site=qq&menu=yes">
-				<img border="0" src="http://wpa.qq.com/pa?p=2:614749555:51" alt="点击这里给我发消息" title="点击这里给我发消息"/>
-			</a>
-		</p> -->
 		<p>维护信息：<a href="http://mt.sohu.com/learning/d20170509/139309213_157101.shtml" target="_blank">****有限公司</a></p>
 	</div>
 </footer>
@@ -172,7 +168,7 @@ $(function(){
 	$('.slide').mouseleave(function(){
 		$('.slide .info').removeClass('hover');
 	});
-	
+
 	$('#btn').click(function(){
 		$('.slide').toggle();
 		if($(this).hasClass('index_cy')){
@@ -182,7 +178,7 @@ $(function(){
 			$(this).removeClass('index_cy2');
 			$(this).addClass('index_cy');
 		}
-		
+
 	});
 });
 </script>

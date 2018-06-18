@@ -145,7 +145,7 @@ function member_quit(obj){
 			dataType: 'json',
 			success:function(msg){
 				if(msg){
-					window.parent.location.href="${pageContext.request.contextPath}/login.jsp";
+					window.parent.location.href="${pageContext.request.contextPath}/";
 				}
 			}
 		});		
