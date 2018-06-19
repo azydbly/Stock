@@ -13,6 +13,7 @@ import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -21,7 +22,7 @@ public class VarietiesServiceImpl implements VarirtiesService {
 	
 	@Autowired
 	private VarietiesMapper varietiesMapper;
-	
+
 	@Override
 	public DataTables getPageVarietiesList(DataTables dataTables) {
 		PageHelper.startPage(dataTables.getPageNum(), dataTables.getLength()); // 核心分页代码 
@@ -58,6 +59,43 @@ public class VarietiesServiceImpl implements VarirtiesService {
 			map.put("status", RequestStatus.FAIL);
 		}
 		return map;
+	}
+
+	@Override
+	public Varieties selVarietiesById(int id) {
+		return varietiesMapper.selVarietiesById(id);
+	}
+
+	@Override
+	public Map<String, Object> updateVarieties(Varieties varieties) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (varietiesMapper.updateVarieties(varieties) > 0) {
+			map.put("status", RequestStatus.SUCCESS);
+		}else{
+			map.put("status", RequestStatus.FAIL);
+		}
+		return map;
+	}
+
+	@Override
+	public Map<String, Object> delVarieties(List<Integer> idlist) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		if (varietiesMapper.delVarieties(idlist) > 0) {
+			map.put("status", RequestStatus.SUCCESS);
+		}else{
+			map.put("status", RequestStatus.FAIL);
+		}
+		return map;
+	}
+
+	@Override
+	public Varieties selVarietiesForAdd(String name) {
+		return varietiesMapper.selVarietiesForAdd(name);
+	}
+
+	@Override
+	public Varieties selVarietiesByIdForEdit(String name, int id) {
+		return varietiesMapper.selVarietiesByIdForEdit(name,id);
 	}
 
 }

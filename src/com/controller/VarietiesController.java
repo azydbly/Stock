@@ -14,8 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class VarietiesController {
@@ -25,6 +28,9 @@ public class VarietiesController {
 	
 	@Autowired
 	private VarirtiesService varirtiesService;
+
+    Date date = new Date();
+    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
     public static final String LIST = "Warehouse/varieties/list";
@@ -56,8 +62,6 @@ public class VarietiesController {
     @ResponseBody
     @RequestMapping(value = "/insertVarieties.action", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public String insertVarieties(Varieties varieties){
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	    varieties.setInsertdatetime(simpleDateFormat.format(date));
 	    varieties.setUpdatedatetime(simpleDateFormat.format(date));
         return JSONObject.toJSONString(varirtiesService.insertVarieties(varieties));
@@ -78,6 +82,48 @@ public class VarietiesController {
     public String selVarietiesById(int id){
         request.setAttribute("varietiesList", varirtiesService.selVarietiesById(id));
         return EDIT;
+    }
+
+    //更新种类信息
+    @ResponseBody
+    @RequestMapping(value = "/updVarieties.action", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    public String updVarieties(Varieties varieties){
+        varieties.setUpdatedatetime(simpleDateFormat.format(date));
+        return JSONObject.toJSONString(varirtiesService.updateVarieties(varieties));
+    }
+
+
+    //删除种类（单条、多条）
+    @ResponseBody
+    @RequestMapping(value = "/delVarieties.action", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
+    public String delVarieties(@RequestParam("idlist[]") List<Integer> idlist){
+        return JSONObject.toJSONString(varirtiesService.delVarieties(idlist));
+    }
+
+    //种类名称重复验证
+    @RequestMapping("/selVarieties.action")
+    public void selVarieties(HttpServletResponse response) throws IOException {
+        request.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("text/html;charset=utf-8");
+
+        String name = request.getParameter("name");
+        String id = request.getParameter("id");
+        if(id == null){
+            Varieties varieties = varirtiesService.selVarietiesForAdd(name);
+            if(varieties == null){
+                response.getWriter().print("true");
+            }else{
+                response.getWriter().print("false");
+            }
+        }else{
+            Varieties varieties = varirtiesService.selVarietiesByIdForEdit(name,Integer.valueOf(id));
+            if(varieties == null){
+                response.getWriter().print("true");
+            }else{
+                response.getWriter().print("false");
+            }
+        }
     }
 
 	

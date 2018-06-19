@@ -76,7 +76,7 @@ public class MenuServiceImpl implements MenuService {
 	@Override
 	public Menu selMenuById(int id) {
 		return menuMapper.selMenuById(id);
-	}
+}
 	
 	@Override
 	public Map<String, Object> updateMenu(Menu menu) {

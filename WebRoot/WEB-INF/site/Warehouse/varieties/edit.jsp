@@ -2,47 +2,40 @@
 <%@ include file="/WEB-INF/layouts/common/public.jsp" %>
 <html>
 <head>
-<title>修改菜单</title>
+<title>修改种类</title>
 </head>
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-member-add">
-		<input type="hidden" name="id" id="menuid" value="${menu.id }"/>
+		<input type="hidden" name="id" id="id" value="${varietiesList.id }"/>
+		<input type="hidden" name="level" value="${varietiesList.level }"/>
 		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜单名称：</label>
+			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>种类名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" id="menuname" name="menuname" value="${menu.menuname }">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>上级菜单：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<span class="select-box">
-					<select class="select" size="1" id="pid" name="pid">
-						<option value="0">顶级菜单</option>
-							<c:forEach items="${menuList }" var="menu1">
-								<option <c:if test="${menu.getPid() == menu1.getId() }">selected</c:if> value="${menu1.getId() }">${menu1.getMenuname() }</option>
-							</c:forEach>
-					</select>
-				</span>
+				<input type="text" class="input-text" id="name" name="name" value="${varietiesList.name }">
 			</div>
 		</div>
 		<div class="row cl" id="icon">
-			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>菜单图标：</label>
+			<label class="form-label col-xs-4 col-sm-3">简介：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" id="iconSelect" name="iconfont">
-			</div>
-		</div>
-		<div class="row cl">
-			<label class="form-label col-xs-4 col-sm-3">URL：</label>
-			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" id="url" name="url" value="${menu.url }">
+				<textarea type="text" class="input-text textarea" name="introduction">${varietiesList.introduction}</textarea>
 			</div>
 		</div>
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">备注：</label>
 			<div class="formControls col-xs-8 col-sm-9">
-				<input type="text" class="input-text" name="remark" value="${menu.remark }">
+				<input type="text" class="input-text" name="remarks" value="${varietiesList.remarks}" />
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">状态：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+			<span class="select-box">
+				<select class="select" size="1" name="state" />
+					<option <c:if test="${varietiesList.state == 1}">selected</c:if> value="1">启用</option>
+					<option <c:if test="${varietiesList.state == 0}">selected</c:if> value="0">禁用</option>
+				</select>
+			</span>
 			</div>
 		</div>
 		<div class="row cl">
@@ -53,66 +46,19 @@
 		</div>
 	</form>
 </article>
-<div id="iconContent" class="menuContent">
-	<ul>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe616;">&#xe616;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe613;">&#xe613;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe620;">&#xe620;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe622;">&#xe622;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe60d;">&#xe60d;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe61d;">&#xe61d;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe62d;">&#xe62d;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe61a;">&#xe61a;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe62e;">&#xe62e;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe67f;">&#xe67f;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe616;">&#xe616;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe613;">&#xe613;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe60f;">&#xe60f;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe633;">&#xe633;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe634;">&#xe634;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe681;">&#xe681;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe636;">&#xe636;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe687;">&#xe687;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe637;">&#xe637;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe691;">&#xe691;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe692;">&#xe692;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe639;">&#xe639;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe623;">&#xe623;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe627;">&#xe627;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe6a5;">&#xe6a5;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe612;">&#xe612;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe685;">&#xe685;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe62b;">&#xe62b;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe62d;">&#xe62d;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe643;">&#xe643;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe6cc;">&#xe6cc;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe621;">&#xe621;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe61e;">&#xe61e;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe618;">&#xe618;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe61c;">&#xe61c;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe6cf;">&#xe6cf;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe654;">&#xe654;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe680;">&#xe680;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe72c;">&#xe72c;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe6c6;">&#xe6c6;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe6cc;">&#xe6cc;</i> </li>
-		<li> <i class="icon Hui-iconfont" title="&amp;#xe6d3;">&#xe6d3;</i> </li>
-	</ul>
-</div>
 <script type="text/javascript" src="${ctxsty}/static/h-ui.admin/js/H-ui.admin.js"></script>
-<script type="text/javascript" src="${ctxsty}/pageList/iconfont.js"></script>
 <script type="text/javascript">
-var id = document.getElementById("menuid").value;
+var id = document.getElementById("id").value;
 $("#form-member-add").validate({
 	rules:{
-		menuname:{
+		name:{
 			required:true,
 			  remote:{
-                url:"selMenu.action?id=" + id,
+                url:"selVarieties.action?id=" + id,
                 type:"post",
                 data: {
-                	menuname: function(){
-                		return $("#menuname").val();
+                	name: function(){
+                		return $("#name").val();
                 	},
                 },
 				dataType: "html",
@@ -124,28 +70,6 @@ $("#form-member-add").validate({
                     }
                 }
             }
-		},
-		url:{
-			  remote:{
-                url:"selUrl.action?id=" + id,
-                type:"post",
-                data: {
-                	url: function(){
-                		return $("#url").val();
-                	},
-                },
-				dataType: "html",
-                dataFilter: function(data, type) {
-                    if (data == "true"){
-                        return true;
-                    }else{
-                        return false;
-                    }
-                }
-            }
-		},
-		iconfont:{
-			required:true,
 		},
 	},
 	onkeyup:false,
@@ -153,7 +77,7 @@ $("#form-member-add").validate({
 	success:"valid",
 	submitHandler:function(form){
 		 $(form).ajaxSubmit({
-			url: "updMenu.action",
+			url: "updVarieties.action",
 			type: 'post',
 			data: $(form).serialize(),
 			dataType: "json",

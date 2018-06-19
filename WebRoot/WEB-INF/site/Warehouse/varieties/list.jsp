@@ -10,7 +10,7 @@
 <div class="page-container">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l">
-			<a href="javascript:;" onclick="delAll(getDTSelect(), 'delMenu.action', reloadTable)" class="btn btn-danger radius">
+			<a href="javascript:;" onclick="delAll(getDTSelect(), 'delVarieties.action', reloadTable)" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
 			</a>
 			<a href="javascript:;" onclick="add('添加种类','addVarieties.action','893','400')" class="btn btn-primary radius">
@@ -108,7 +108,7 @@ $(function() {
 				var a = "";
 				a += '<a title="' + state[data] + '" style="text-decoration:none" onClick="changeStatus(' + "'" +  state[data] + "'" + ',[' + "'" + row.name + "'" + '],\'updVarietiesState.action\',' + row.id + ', '+ flag[data] + ')" href="javascript:;"><i class="Hui-iconfont">' + icon[data] + '</i></a>';
 				a += '<a title="编辑" href="javascript:;" onclick="edit_show([' + "'" + row.name + "'" + '],\'selVarietiesById.action\',' + row.id + ',\'893\',\'400\')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
-				a += '<a title="删除" href="javascript:;" onclick="del([' + row.id + '],\'delMenu.action\',[' + "'" + row.name + "'" + '],reloadTable)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>';
+				a += '<a title="删除" href="javascript:;" onclick="del([' + row.id + '],\'delVarieties.action\',[' + "'" + row.name + "'" + '],reloadTable)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>';
 				return a;
 			}
 		}],

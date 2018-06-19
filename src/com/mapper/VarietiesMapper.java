@@ -22,4 +22,18 @@ public interface VarietiesMapper {
 	//更新种类状态
 	int updateVarietiesState(Varieties varieties);
 
+	//根据id查询种类
+	Varieties selVarietiesById(int id);
+
+	//根据id修改种类信息
+	int updateVarieties(Varieties varieties);
+
+    //删除种类（单条、多条）
+    int delVarieties(@Param("idlist")List<Integer> idlist);
+
+    //添加种类时验证重复
+    Varieties selVarietiesForAdd(String name);
+
+    //修改种类时验证重复
+    Varieties selVarietiesByIdForEdit(String name,int id);
 }

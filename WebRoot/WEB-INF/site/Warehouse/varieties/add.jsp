@@ -52,23 +52,23 @@ $("#form-member-add").validate({
 		rules:{
 			name:{
 				required:true,
-				  remote:{
-                    url:"selMenu.action",
-                    type:"post",
-                    data: {
-                    	name: function(){
-                    		return $("#name").val();
-                    	},
-                    },
- 					dataType: "html",
-                    dataFilter: function(data, type) {
-                        if (data == "true"){
-                            return true;
-                        }else{
-                            return false;
-                        }
-                    }
-                }
+				remote:{
+					url:"selVarieties.action",
+					type:"post",
+					data: {
+						name: function(){
+							return $("#name").val();
+						},
+					},
+					dataType: "html",
+					dataFilter: function(data, type) {
+						if (data == "true"){
+							return true;
+						}else{
+							return false;
+						}
+					}
+				}
 			},
 		},
 		onkeyup:false,
