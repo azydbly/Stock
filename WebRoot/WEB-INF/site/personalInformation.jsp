@@ -9,7 +9,9 @@
     <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <div class="page-container">
-    <div class="Huialert Huialert-info mt-20"><i class="icon-remove"></i> 请更改完每个选项卡的信息进行保存，否则将保存失败</div>
+    <div class="Huialert Huialert-info mt-20">
+        <i class="icon-remove Hui-iconfont" title="关闭">&#xe6a6;</i> 请更改完每个选项卡的信息进行保存，否则将保存失败
+    </div>
     <form class="form form-horizontal" id="form-article-add" enctype="multipart/form-data">
         <div id="tab-system" class="HuiTab">
             <div class="tabBar cl">
@@ -56,7 +58,7 @@
                 </div>
             </div>
 
-            <input type="hidden" name="id" id="employeeNum" value="${employee.id}"/>
+            <input type="hidden" name="id" id="id" value="${employee.id}"/>
             <div class="tabCon">
                 <div class="row cl">
                     <label class="form-label col-xs-4 col-sm-2"><span class="c-red">*</span>原密码：</label>
@@ -126,7 +128,7 @@
                                 return $("#oldPassword").val();
                             },
                             id: function(){
-                                return $("#employeeNum").val();
+                                return $("#id").val();
                             }
                         },
                         dataType: "html",
@@ -161,7 +163,7 @@
                                 return $("#oldPassword").val();
                             },
                             id: function(){
-                                return $("#employeeNum").val();
+                                return $("#id").val();
                             }
                         },
                         dataType: "html",

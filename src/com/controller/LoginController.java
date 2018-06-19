@@ -64,6 +64,7 @@ public class LoginController {
 	//更该个人信息（资料，密码，头像）
 	@RequestMapping("/updEmployeeById.action")
 	public void updatePasswordById(Employee employee, int id, String newPassword, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		System.out.println("进入");
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");

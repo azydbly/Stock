@@ -23,7 +23,7 @@
                     <a href="login.jsp">后台登录</a>
                 </div>
                 <div class="system">
-                    <a href="#">价格查询</a>
+                    <a href="query.jsp">价格查询</a>
                 </div>
                 <div class="clear"></div>
             </div>

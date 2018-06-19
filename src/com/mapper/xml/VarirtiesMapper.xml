@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.VarietiesMapper">
+
+	<!-- DataTabables 分页，搜索  -->
+	<select id="getPageVarietiesList" resultType="com.entity.Varieties">
+		select * from varieties
+		<where>
+			<if test="subSQL != null and subSQL != '' ">
+				${subSQL}
+			</if>
+			<if test="search != null and search != ''">
+				and INSTR(ifnull(name,''),'${search}') > 0
+			</if>
+		</where>
+	</select>
+
+    <!-- 添加种类 -->
+    <insert id="insertVarieties" parameterType="com.entity.Varieties">
+        insert into varieties (name,introduction,level,remarks,insertdatetime,updatedatetime,state) values (#{name},#{introduction},#{level},#{remarks},#{insertdatetime},#{updatedatetime},#{state})
+    </insert>
+
+    <!-- 修改种类状态  -->
+    <update id="updateVarietiesState" parameterType="com.entity.Varieties">
+        update varieties set state = #{state} where id = #{id}
+    </update>
+	
+</mapper>

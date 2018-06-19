@@ -3519,7 +3519,7 @@ a.label:hover, a.label:focus, a.badge:hover, a.badge:focus{color: #fff;text-deco
 .Huialert, .Huialert h4{color: #c09853}
 .Huialert h4{margin: 0}
 .Huialert .Hui-iconfont{position:absolute;top:9px;right:10px;line-height: 20px;cursor:pointer; color:#000; opacity:0.2;_color:#666}
-.Huialert .Hui-iconfont.hover{color:#000;opacity:0.8}
+.Huialert .Hui-iconfont:hover{color:#000;opacity:0.8}
 .Huialert-success{color: #468847;background-color: #dff0d8;border-color: #d6e9c6}
 .Huialert-success h4{color: #468847}
 .Huialert-danger{color: #b94a48;background-color: #f2dede;border-color: #eed3d7}

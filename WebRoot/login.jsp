@@ -24,10 +24,10 @@
 			<strong>承德老酒库存系统</strong> <em>Chengde Old Wine System</em>
 		</dt>
 		<dd class="user_icon">
-			<input type="text" name="loginName" placeholder="账号" class="login_txtbx" value="${loginName }" />
+			<input type="text" name="loginName" placeholder="账号" class="login_txtbx" value="${loginName != null ? loginName : 'admin'}" />
 		</dd>
 		<dd class="pwd_icon">
-			<input type="password" name="loginPassword" placeholder="${messagePassword != null?messagePassword:'密码'}" class="login_txtbx" value="${loginPassword }" />
+			<input type="password" name="loginPassword" placeholder="${messagePassword != null ? messagePassword : '密码'}" class="login_txtbx" value="${loginPassword }" />
 		</dd>
 		<dd>
 			<input type="submit" value="立即登陆" class="submit_btn" />
