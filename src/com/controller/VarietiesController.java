@@ -108,8 +108,7 @@ public class VarietiesController {
         response.setContentType("text/html;charset=utf-8");
 
         String name = request.getParameter("name");
-        String id = request.getParameter("id");
-        if(id == null){
+        if(request.getParameter("id") == null){
             Varieties varieties = varirtiesService.selVarietiesForAdd(name);
             if(varieties == null){
                 response.getWriter().print("true");
@@ -117,7 +116,7 @@ public class VarietiesController {
                 response.getWriter().print("false");
             }
         }else{
-            Varieties varieties = varirtiesService.selVarietiesByIdForEdit(name,Integer.valueOf(id));
+            Varieties varieties = varirtiesService.selVarietiesByIdForEdit(name,Integer.valueOf(request.getParameter("id")));
             if(varieties == null){
                 response.getWriter().print("true");
             }else{

@@ -73,7 +73,7 @@ public class EmployeeController {
 	}	
 	
 	
-	//页面修改用户页面
+	//进入修改用户页面
 	@RequestMapping("/toUpdEmpPage.action")
 	public String toUpdPage(int id){
 		request.setAttribute("user", employeeService.selById(id));
@@ -117,7 +117,7 @@ public class EmployeeController {
 				response.getWriter().print("false");
 			}
 		}else{
-			Employee employee = employeeService.selectAllNameUpdate(request.getParameter("loginName"),Integer.valueOf(request.getParameter("employeeNum")));
+			Employee employee = employeeService.selectAllNameUpdate(request.getParameter("loginName"),Integer.valueOf(request.getParameter("id")));
 			if(employee == null){
 				response.getWriter().print("true");
 			}else{
@@ -125,57 +125,15 @@ public class EmployeeController {
 			}
 		}
 	}
-	
-	
-	//邮箱找回密码时验证用户名是否存在
-	@RequestMapping("/showForgotName.action")
-	public void showForgotName(HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		Employee employee = employeeService.selectAllName(request.getParameter("loginName"));
-		if(employee == null){
-			response.getWriter().print("false");
-		}else{
-			response.getWriter().print("true");
-		}
-	}
-	
-	//邮箱找回密码时根据用户名检查邮箱是否正确
-	@RequestMapping("/showForgotEmail.action")
-	public void showForgotEmail(HttpServletResponse response) throws Exception {
-		request.setCharacterEncoding("utf-8");
-		response.setCharacterEncoding("utf-8");
-		response.setContentType("text/html;charset=utf-8");
-		if(request.getParameter("loginName") != null && request.getParameter("loginName") != ""){
-			Employee employee = employeeService.selectAllName(request.getParameter("loginName"));
-			if(request.getParameter("email").equals(employee.getEmail())){
-				response.getWriter().print("true");
-			}else{
-				response.getWriter().print("false");
-			}
-		}
-	}
-	
-	
-	//更改员工状态
+
+	//更改用户状态
 	@ResponseBody
 	@RequestMapping(value = "/updateEmployeeState.action", method=RequestMethod.POST, produces="appliction/json; charset=utf-8")
 	public String updateEmployeeState(int flag,int id){
 		return JSON.toJSONString(employeeService.updateEmployeeState(flag, id));
 	}
-	
 
-	
-	// 根据员工编码查询身证号
-	@ResponseBody
-	@RequestMapping("/selectEmployeeByRname.action")
-	public Employee selectEmployeeByRname(String employeeNum) {
-		Employee e = employeeService.selById(Integer.valueOf(employeeNum));
-		return e;
-	}
-	
-	//重置管理员密码
+	//重置用户密码
 	@RequestMapping("/resetPassword.action")
 	public String resetPassword(int id){
 		request.setAttribute("resetPwd",employeeService.selById(id));

@@ -4,14 +4,24 @@
 
 <mapper namespace="com.mapper.EmployeeMapper">
 
+    <!-- 表名 -->
+    <sql id="TableName">
+        employee
+    </sql>
+
+	<!-- 公众部分 -->
+	<sql id="selectColumn">
+		id,loginName,loginPassword,userName,createDate,idCard,telphone,email,address,url,remark,state
+	</sql>
+
 	<!-- 登录 -->
 	<select id="login" resultType="com.entity.Employee">
-		select * from employee where state = 1 and loginName = #{0} and loginPassword = #{1}   
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where state = 1 and loginName = #{0} and loginPassword = #{1}
 	</select>
 
 	<!-- DataTabables 分页，搜索  -->
 	<select id="getPageEmployeeList" resultType="com.entity.Employee">
-		select * from employee
+		select <include refid="selectColumn" /> from <include refid="TableName" />
 		<where>
 			<if test="subSQL != null and subSQL != '' ">
 				${subSQL}
@@ -25,38 +35,38 @@
 	
 	<!-- 更新自己的密码 -->
 	<update id="updatePasswordById">
-	 	update employee set loginPassword = #{0}  where id = #{1}
+	 	update <include refid="TableName" /> set loginPassword = #{0}  where id = #{1}
 	</update> 
 	
 	<!-- 更改头像 -->
 	<update id="updEmployeeById" parameterType="com.entity.Employee">
-		update employee set url = #{url} where id = #{id}
+		update <include refid="TableName" /> set url = #{url} where id = #{id}
 	</update>
 	
 	<!-- 更改个人信息  -->
 	<update id="updEmployeeByIdNoFile" parameterType="com.entity.Employee">
-		update employee set userName = #{userName},loginName = #{loginName},email = #{email},telphone = #{telphone},remark = #{remark} where id = #{id}
+		update <include refid="TableName" /> set userName = #{userName},loginName = #{loginName},email = #{email},telphone = #{telphone},remark = #{remark} where id = #{id}
 	</update>
 	
 	<!-- 根据id查询用户 -->
 	<select id="selById" resultType="com.entity.Employee">
-		select * from employee where id = #{id}
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where id = #{id}
 	</select>
 	
 	<!-- 根据职位id查询用户 -->
 	<select id="selByRoleId" resultType="com.entity.Employee">
-		select * from employee where roleId = #{roleId}
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where roleId = #{roleId}
 	</select>
 	
 	<!-- 增加用户 -->
 	<insert id="insEmployee">
-		insert into employee (createDate,loginName,userName,loginPassword,idCard,telphone,email,address) values(#{createDate},#{loginName},#{userName},#{loginPassword},#{idCard},
+		insert into <include refid="TableName" /> (createDate,loginName,userName,loginPassword,idCard,telphone,email,address) values(#{createDate},#{loginName},#{userName},#{loginPassword},#{idCard},
 		#{telphone},#{email},#{address})
 	</insert>
 	
 	<!-- 删除用户   单条、多条  -->
 	<delete id="delEmployees">
-		delete from employee where id in
+		delete from <include refid="TableName" /> where id in
 		<foreach collection="idlist" item="id" index="index" open="(" close=")"  separator=",">
 			#{id}
 		</foreach>
@@ -64,23 +74,23 @@
 	
 	<!-- 修改员工信息 -->
 	<update id="updEmployee">
-		update employee set userName = #{userName},idCard = #{idCard},telphone = #{telphone},
+		update <include refid="TableName" /> set userName = #{userName},idCard = #{idCard},telphone = #{telphone},
 		email = #{email},address = #{address} where id = #{id}
 	</update>
 
 	<!-- 添加查询所有用户名，注册时判断是否重复 -->
 	<select id="selectAllName" resultType="com.entity.Employee">
-		select loginName,email from employee where loginName = #{loginName}
+		select loginName,email from <include refid="TableName" /> where loginName = #{loginName}
 	</select>
 	
 	<!-- 更新查询所有用户名，注册时判断是否重复 -->
 	<select id="selectAllNameUpdate" resultType="com.entity.Employee">
-		select loginName from employee where loginName = #{0} and id != #{1}
+		select loginName from <include refid="TableName" /> where loginName = #{0} and id != #{1}
 	</select>
 	
 	<!-- 修改员工状态 -->
 	<update id="updateEmployeeState" parameterType="com.entity.Employee">
-		update employee set state = #{0} where id = #{1}
+		update <include refid="TableName" /> set state = #{0} where id = #{1}
 	</update>
 	
 </mapper>

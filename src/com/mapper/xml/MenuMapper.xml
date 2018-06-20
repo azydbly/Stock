@@ -3,14 +3,24 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.MenuMapper">
 
+    <!-- 表名 -->
+    <sql id="TableName">
+        menu
+    </sql>
+
+	<!-- 公众部分 -->
+	<sql id="selectColumn">
+		id,menuname,pid,url,iconfont,remark,target,state
+	</sql>
+
 	<!-- 查询登陆时查询分配的菜单 -->
 	<select id="selectLoginMenus" resultType="com.entity.Menu">
-		select * from menu where state = 1
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where state = 1
 	</select>
 
 	<!-- DataTabables 分页，搜索  -->
 	<select id="getPageMenuList" resultType="com.entity.Menu">
-		select * from menu
+		select <include refid="selectColumn" /> from <include refid="TableName" />
 		<where>
 			<if test="subSQL != null and subSQL != '' ">
 				${subSQL}
@@ -23,52 +33,52 @@
 	
 	<!-- 查询所有pid=0的顶级菜单 -->
 	<select id="selPid" resultType="com.entity.Menu">
-		select * from menu where state = 1 and pid = 0
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where state = 1 and pid = 0
 	</select>
 	
 	<!-- 添加Menu菜单 -->
 	<insert id="insertMenu" parameterType="com.entity.Menu">
-		insert into menu (menuname,pid,url,state,remark,iconfont) values (#{menuname},#{pid},#{url},#{state},#{remark},#{iconfont})
+		insert into <include refid="TableName" /> (menuname,pid,url,state,remark,iconfont) values (#{menuname},#{pid},#{url},#{state},#{remark},#{iconfont})
 	</insert>
 	
 	<!-- 添加菜单时，名称重复验证 -->
 	<select id="selMenuByAdd" resultType="com.entity.Menu">
-		select menuname from menu where menuname = #{menuname}
+		select menuname from <include refid="TableName" /> where menuname = #{menuname}
 	</select>
 
 	<!-- 添加菜单时，url重复验证 -->
 	<select id="selUrlByAdd" resultType="com.entity.Menu">
-		select url from menu where url = #{url}
+		select url from <include refid="TableName" /> where url = #{url}
 	</select>
 
 	<!-- 修改菜单内容 -->
 	<update id="updateMenu" parameterType="com.entity.Menu">
-		update menu set menuname = #{menuname},pid = #{pid},url = #{url},remark = #{remark} where id = #{id}
+		update <include refid="TableName" /> set menuname = #{menuname},pid = #{pid},url = #{url},remark = #{remark} where id = #{id}
 	</update>
 	
 	<!-- 更新菜单时，名称重复验证 -->
 	<select id="selMenu" resultType="com.entity.Menu">
-		select menuname from menu where id != #{1} and menuname =#{0}
+		select menuname from <include refid="TableName" /> where id != #{1} and menuname =#{0}
 	</select>
 
 	<!-- 更新菜单时：url重复验证 -->
 	<select id="selUrl" resultType="com.entity.Menu">
-		select url from menu where id != #{1} and url =#{0}
+		select url from <include refid="TableName" /> where id != #{1} and url =#{0}
 	</select>
 	
 	<!-- 根据ID查询菜单 -->
 	<select id="selMenuById" resultType="com.entity.Menu">
-		select * from menu where id = #{id}
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where id = #{id}
 	</select>
 	
 	<!-- 修改菜单状态  -->
 	<update id="updateMenuState" parameterType="com.entity.Menu">
-		update menu set state = #{state} where id = #{id}
+		update <include refid="TableName" /> set state = #{state} where id = #{id}
 	</update>
 	
 	<!-- 根删除菜单 （单条多条）-->
 	<delete id="delMenu">
-		delete from menu where id in
+		delete from <include refid="TableName" /> where id in
 		<foreach collection="idlist" item="id" index="index" open="(" close=")" separator=",">
 			#{id,jdbcType=INTEGER}
 		</foreach>
@@ -76,7 +86,7 @@
 	
 	<!-- 查询菜单下的子菜单数量 -->
 	<select id="selectCountMenu" resultType="int">
-		select count(menuname) from menu where pid in
+		select count(menuname) from <include refid="TableName" /> where pid in
 			<foreach collection="idlist" item="pid" index ="index" open="(" close=")" separator=",">
 				#{pid,jdbcType=INTEGER}
 			</foreach>

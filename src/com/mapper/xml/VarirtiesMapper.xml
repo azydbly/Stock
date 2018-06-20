@@ -3,9 +3,19 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.mapper.VarietiesMapper">
 
+    <!-- 表名 -->
+    <sql id="TableName">
+        varieties
+    </sql>
+
+    <!-- 公众部分 -->
+    <sql id="selectColumn">
+        id,name,introduction,level,remarks,insertdatetime,updatedatetime,state
+    </sql>
+
 	<!-- DataTabables 分页，搜索  -->
 	<select id="getPageVarietiesList" resultType="com.entity.Varieties">
-		select * from varieties
+		select <include refid="selectColumn" /> from <include refid="TableName" />
 		<where>
 			<if test="subSQL != null and subSQL != '' ">
 				${subSQL}
@@ -18,40 +28,40 @@
 
     <!-- 添加种类 -->
     <insert id="insertVarieties" parameterType="com.entity.Varieties">
-        insert into varieties (name,introduction,level,remarks,insertdatetime,updatedatetime,state) values (#{name},#{introduction},#{level},#{remarks},#{insertdatetime},#{updatedatetime},#{state})
+        insert into <include refid="TableName" /> (name,introduction,level,remarks,insertdatetime,updatedatetime,state) values (#{name},#{introduction},#{level},#{remarks},#{insertdatetime},#{updatedatetime},#{state})
     </insert>
 
     <!-- 修改种类状态  -->
     <update id="updateVarietiesState" parameterType="com.entity.Varieties">
-        update varieties set state = #{state} where id = #{id}
+        update <include refid="TableName" /> set state = #{state} where id = #{id}
     </update>
 
 	<!-- 根据id查询种类 -->
 	<select id="selVarietiesById" resultType="com.entity.Varieties">
-		select * from varieties where id = #{id}
+		select <include refid="selectColumn" /> from <include refid="TableName" /> where id = #{id}
 	</select>
 
     <!-- 修改种类内容 -->
     <update id="updateVarieties" parameterType="com.entity.Varieties">
-        update varieties set name = #{name},introduction = #{introduction},level = #{level},remarks = #{remarks},updatedatetime = #{updatedatetime},state = #{state} where id = #{id}
+        update <include refid="TableName" /> set name = #{name},introduction = #{introduction},level = #{level},remarks = #{remarks},updatedatetime = #{updatedatetime},state = #{state} where id = #{id}
     </update>
 
     <!-- 删除种类（单条多条）-->
     <delete id="delVarieties">
-        delete from varieties where id in
+        delete from <include refid="TableName" /> where id in
         <foreach collection="idlist" item="id" index="index" open="(" close=")" separator=",">
             #{id,jdbcType=INTEGER}
         </foreach>
     </delete>
 
     <!-- 添加种类时，名称重复验证 -->
-    <select id="selMenuByAdd" resultType="com.entity.Varieties">
-        select * from varieties where name = #{name}
+    <select id="selVarietiesForAdd" resultType="com.entity.Varieties">
+        select name from <include refid="TableName" /> where name = #{name}
     </select>
 
     <!-- 修改种类时，名称重复验证 -->
-    <select id="selMenu" resultType="com.entity.Varieties">
-        select * from varieties where id != #{1} and name =#{0}
+    <select id="selVarietiesByIdForEdit" resultType="com.entity.Varieties">
+        select name from <include refid="TableName" /> where id != #{1} and name =#{0}
     </select>
 
 </mapper>
