@@ -63,7 +63,7 @@ public class LoginController {
 	
 	//更该个人信息（资料，密码，头像）
 	@RequestMapping("/updEmployeeById.action")
-	public void updatePasswordById(Employee employee, int id, String newPassword, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception{
+	public void updatePasswordById(Employee employee, int id, String newPassword,String newpwd,String oldpassword, MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws Exception{
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
@@ -72,19 +72,19 @@ public class LoginController {
 		Employee e = (Employee)request.getSession().getAttribute("employee");
 		
 		//更改密码
-		if(!"".equals(newPassword) && "".equals(request.getParameter("uploadfile")) && e.getLoginName().equals(employee.getLoginName()) && e.getTelphone().equals(employee.getTelphone()) && e.getEmail().equals(employee.getEmail())){
+		if(!"".equals(newPassword) && !"".equals(newpwd) && !"".equals(oldpassword) && "".equals(request.getParameter("uploadfile")) && e.getLoginName().equals(employee.getLoginName()) && e.getTelphone().equals(employee.getTelphone()) && e.getEmail().equals(employee.getEmail()) && e.getRemark().equals(employee.getRemark())){
 			employeeService.updatePasswordByPersonal(MD5Util.string2MD5(newPassword), id);
 			// 销毁session
 			request.getSession().invalidate();
 			response.getWriter().print("passwordtrue");
 		//更改个人信息
-		}else if("".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && (!e.getLoginName().equals(employee.getLoginName()) || !e.getTelphone().equals(employee.getTelphone()) || !e.getEmail().equals(employee.getEmail()) || !employee.getRemark().equals(e.getRemark()))){
+		}else if("".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && "".equals(newpwd) && "".equals(oldpassword) && (!e.getLoginName().equals(employee.getLoginName()) || !e.getTelphone().equals(employee.getTelphone()) || !e.getEmail().equals(employee.getEmail()) || !employee.getRemark().equals(e.getRemark()))){
 		    int a = employeeService.updEmployeeByIdNoFile(employee);
 			Employee employee1 = employeeService.selById(Integer.valueOf(employee.getId()));
 			request.getSession().setAttribute("employee", employee1);
 			response.getWriter().print("true");
 		//更改头像
-		}else if(!"".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && e.getLoginName().equals(employee.getLoginName()) && e.getTelphone().equals(employee.getTelphone()) && e.getEmail().equals(employee.getEmail()) && e.getRemark().equals(employee.getRemark())){
+		}else if(!"".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && "".equals(newpwd) && "".equals(oldpassword) && e.getLoginName().equals(employee.getLoginName()) && e.getTelphone().equals(employee.getTelphone()) && e.getEmail().equals(employee.getEmail()) && e.getRemark().equals(employee.getRemark())){
 			//旧的头像名称
 			String url = employeeService.selById(Integer.valueOf(((Employee) request.getSession().getAttribute("employee")).getId())).getUrl();
 			if(!"".equals(url) || url != null){
@@ -117,7 +117,7 @@ public class LoginController {
 			request.getSession().setAttribute("photo", photo);
 			
 			response.getWriter().print("true");
-		}else if("".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && e.getLoginName().equals(employee.getLoginName()) && e.getTelphone().equals(employee.getTelphone()) && e.getEmail().equals(employee.getEmail()) && e.getRemark().equals(employee.getRemark())){
+		}else if("".equals(request.getParameter("uploadfile")) && "".equals(newPassword) && "".equals(newpwd) && "".equals(oldpassword) && e.getLoginName().equals(employee.getLoginName()) && e.getTelphone().equals(employee.getTelphone()) && e.getEmail().equals(employee.getEmail()) && e.getRemark().equals(employee.getRemark())){
 			response.getWriter().print("no");
 		}else{
 			response.getWriter().print("false");

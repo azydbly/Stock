@@ -3,7 +3,7 @@
 <%@ include file="/WEB-INF/layouts/common/publicList.jsp" %>
 <html>
 <head>
-<title>种类管理</title>
+<title>酒类管理</title>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont"></i> 首页 <span class="c-gray en">&gt;</span>系统管理 <span class="c-gray en">&gt;</span>菜单管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
@@ -13,8 +13,8 @@
 			<a href="javascript:;" onclick="delAll(getDTSelect(), 'delVarieties.action', reloadTable)" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
 			</a>
-			<a href="javascript:;" onclick="add('添加种类','addVarieties.action','893','400')" class="btn btn-primary radius">
-				<i class="Hui-iconfont">&#xe600;</i> 添加种类
+			<a href="javascript:;" onclick="add('添加酒','addVarieties.action','893','400')" class="btn btn-primary radius">
+				<i class="Hui-iconfont">&#xe600;</i> 添加酒
 			</a>
 		</span>
 		<div class="r">
@@ -24,7 +24,7 @@
 				<option value="1">启用</option>
 				<option value="0">禁用</option>
 			</select>&nbsp;&nbsp;
-			种类名称:<input type="text" class="input-text" style="width:200px" placeholder="种类名称" id="search">&nbsp;&nbsp;
+			酒名称:<input type="text" class="input-text" style="width:200px" placeholder="酒名称" id="search">&nbsp;&nbsp;
 			<button type="submit" id="doSearch" class="btn btn-success radius"><i class="Hui-iconfont">&#xe665;</i> 搜索</button>
 		</div>
 	</div>
