@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.mapper.AlcoholMapper">
+
+    <!-- 表名 -->
+    <sql id="TableName">
+        alcohol
+    </sql>
+
+	<!-- 公众部分 -->
+	<sql id="selectColumn">
+		id,name,pid,describe,url,insertdatetime,updatedatetime,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,
+		bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,surplusBoxNumber,surplusWholesaleNumber,state
+	</sql>
+
+
+	<!-- DataTabables 分页，搜索  -->
+	<select id="getPageEmployeeList" resultType="com.entity.Alcohol">
+		select <include refid="selectColumn" /> from <include refid="TableName" />
+		<where>
+			<if test="subSQL != null and subSQL != '' ">
+				${subSQL}
+			</if>
+			<if test="search != null and search != ''">
+				and INSTR(ifnull(userName,''),'${search}') > 0
+			</if>
+		</where>
+	</select>
+	
+</mapper>
