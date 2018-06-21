@@ -4,9 +4,48 @@
 
 <mapper namespace="com.mapper.AlcoholMapper">
 
+    <resultMap type="com.entity.Alcohol" id="alcoholAll">
+        <id property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="pid" column="pid"/>
+        <result property="describe" column="describe"/>
+        <result property="url" column="url"/>
+        <result property="insertdatetime" javaType="java.util.Date" column="insertdatetime"/>
+        <result property="updatedatetime" javaType="java.util.Date" column="updatedatetime"/>
+        <result property="boxNumber" column="boxNumber"/>
+        <result property="boxPurchasePrice" column="boxPurchasePrice"/>
+        <result property="boxPrice" column="boxPrice"/>
+        <result property="boxWholesaleNumber" column="boxWholesaleNumber"/>
+        <result property="boxWholesalePrice" column="boxWholesalePrice"/>
+        <result property="bottlePurchasePrice" column="bottlePurchasePrice"/>
+        <result property="bottlePrice" column="bottlePrice"/>
+        <result property="bottleWholesaleNumber" column="bottleWholesaleNumber"/>
+        <result property="bottleWholesalePrice" column="bottleWholesalePrice"/>
+        <result property="surplusBoxNumber" column="surplusBoxNumber"/>
+        <result property="surplusWholesaleNumber" column="surplusWholesaleNumber"/>
+        <result property="state" column="state"/>
+
+        <association property="varieties" javaType="com.entity.Varieties">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="introduction" column="introduction"/>
+            <result property="level" column="level"/>
+            <result property="remarks" column="remarks"/>
+            <result property="insertdatetime" javaType="java.util.Date" column="insertdatetime"/>
+            <result property="updatedatetime" javaType="java.util.Date" column="updatedatetime"/>
+            <result property="state" column="state"/>
+        </association>
+    </resultMap>
+
+
     <!-- 表名 -->
     <sql id="TableName">
         alcohol
+    </sql>
+
+	<!-- 表名 -->
+    <sql id="TableName2">
+        varieties
     </sql>
 
 	<!-- 公众部分 -->
@@ -15,16 +54,23 @@
 		bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,surplusBoxNumber,surplusWholesaleNumber,state
 	</sql>
 
+    <!-- 公众部分 -->
+	<sql id="selectColumn2">
+		a.id,a.name,a.pid,a.describe,a.url,a.insertdatetime,a.updatedatetime,a.boxNumber,a.boxPurchasePrice,a.boxPrice,a.boxWholesaleNumber,a.boxWholesalePrice,
+		a.bottlePurchasePrice,a.bottlePrice,a.bottleWholesaleNumber,a.bottleWholesalePrice,a.surplusBoxNumber,a.surplusWholesaleNumber,a.state,b.name as pname
+	</sql>
+
 
 	<!-- DataTabables 分页，搜索  -->
-	<select id="getPageEmployeeList" resultType="com.entity.Alcohol">
-		select <include refid="selectColumn" /> from <include refid="TableName" />
+	<select id="showPageAlcohol" resultMap="alcoholAll">
+		select <include refid="selectColumn2" /> from <include refid="TableName" /> a
+        left join <include refid="TableName2" /> b on a.pid = b.id and b.state = 1
 		<where>
 			<if test="subSQL != null and subSQL != '' ">
 				${subSQL}
 			</if>
 			<if test="search != null and search != ''">
-				and INSTR(ifnull(userName,''),'${search}') > 0
+				and INSTR(ifnull(name,''),'${search}') > 0
 			</if>
 		</where>
 	</select>

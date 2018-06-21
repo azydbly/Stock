@@ -98,4 +98,9 @@ public class VarietiesServiceImpl implements VarirtiesService {
 		return varietiesMapper.selVarietiesByIdForEdit(name,id);
 	}
 
+	@Override
+	public List<Varieties> selAllVarieties() {
+		return varietiesMapper.selAllVarieties();
+	}
+
 }

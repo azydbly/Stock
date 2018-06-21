@@ -6,14 +6,14 @@
 <title>酒类管理</title>
 </head>
 <body>
-<nav class="breadcrumb"><i class="Hui-iconfont"></i> 首页 <span class="c-gray en">&gt;</span>系统管理 <span class="c-gray en">&gt;</span>菜单管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+<nav class="breadcrumb"><i class="Hui-iconfont"></i> 首页 <span class="c-gray en">&gt;</span>仓库管理 <span class="c-gray en">&gt;</span>酒类管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 	<div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l">
 			<a href="javascript:;" onclick="delAll(getDTSelect(), 'delVarieties.action', reloadTable)" class="btn btn-danger radius">
 				<i class="Hui-iconfont">&#xe6e2;</i> 批量删除
 			</a>
-			<a href="javascript:;" onclick="add('添加酒','addVarieties.action','893','400')" class="btn btn-primary radius">
+			<a href="javascript:;" onclick="add_full('添加酒','addAlcohol.action')" class="btn btn-primary radius">
 				<i class="Hui-iconfont">&#xe600;</i> 添加酒
 			</a>
 		</span>
@@ -36,13 +36,15 @@
 					<th class="list_a">
 						<input id="input-0" type="checkbox" name="all"><label for="input-0"></label>
 					</th>
-					<th class="list_c">种类名称</th>
-					<th>简介</th>
-					<th class="list_c">备注</th>
-					<th class="list_b">插入时间</th>
-					<th class="list_b">更新时间</th>
-					<th class="list_b">状态</th>
-					<th class="list_b">操作</th>
+					<th class="list_b">图片</th>
+					<th>名称</th>
+					<th class="list_b">所属分类</th>
+					<th>描述</th>
+					<th class="list_a">箱/瓶</th>
+					<th class="list_b">剩余箱数</th>
+					<th class="list_b">剩余瓶数</th>
+					<th class="list_a">状态</th>
+					<th class="list_a">操作</th>
 				</tr>
 			</thead>
 		</table>
@@ -57,7 +59,7 @@ $(function() {
 		  {"bVisible": false, "aTargets": [0]} //控制列的隐藏显示
 		],
 		ajax: {
-			url: "showPageVarieties.action",
+			url: "showPageAlcohol.action",
 			type: 'post',
 			data: function(d) {
 				d.search = $('#search').val();
@@ -79,19 +81,25 @@ $(function() {
 				return '<input id="input-' + data + '" type="checkbox" name="single"><label for="input-' + data + '"></label>';
 			}
 		}, {
+			data: "url",
+			defaultContent: "",
+        }, {
 			data: "name",
 			defaultContent: "",
 		}, {
-			data: "introduction",
+			data: "pname",
 			defaultContent: "",
 		}, {
-			data: "remarks",
+			data: "describe",
 			defaultContent: "",
 		}, {
-			data: "insertdatetime",
+			data: "boxNumber",
 			defaultContent: "",
 		}, {
-			data: "updatedatetime",
+			data: "surplusBoxNumber",
+			defaultContent: "",
+        }, {
+			data: "surplusWholesaleNumber",
 			defaultContent: "",
 		}, {
 			data: "state",
@@ -108,7 +116,6 @@ $(function() {
 				var a = "";
 				a += '<a title="' + state[data] + '" style="text-decoration:none" onClick="changeStatus(' + "'" +  state[data] + "'" + ',[' + "'" + row.name + "'" + '],\'updVarietiesState.action\',' + row.id + ', '+ flag[data] + ')" href="javascript:;"><i class="Hui-iconfont">' + icon[data] + '</i></a>';
 				a += '<a title="编辑" href="javascript:;" onclick="edit_show([' + "'" + row.name + "'" + '],\'selVarietiesById.action\',' + row.id + ',\'893\',\'400\')" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>';
-				a += '<a title="删除" href="javascript:;" onclick="del([' + row.id + '],\'delVarieties.action\',[' + "'" + row.name + "'" + '],reloadTable)" class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>';
 				return a;
 			}
 		}],

@@ -64,4 +64,9 @@
         select name from <include refid="TableName" /> where id != #{1} and name =#{0}
     </select>
 
+    <!-- 查询所有种类 -->
+    <select id="selAllVarieties" resultType="com.entity.Varieties">
+        select <include refid="selectColumn" /> from <include refid="TableName" /> where state = 1
+    </select>
+
 </mapper>

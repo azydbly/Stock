@@ -34,4 +34,7 @@ public interface VarirtiesService {
     //修改种类时验证重复
     Varieties selVarietiesByIdForEdit(String name,int id);
 
+    //查询所有分类
+    List<Varieties> selAllVarieties();
+
 }
