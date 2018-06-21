@@ -18,7 +18,7 @@ public class Alcohol {
     private String name;
 
     //所属种类
-    private int pip;
+    private int pid;
 
     //描述
     private String describe;
@@ -70,6 +70,16 @@ public class Alcohol {
     //标识
     private int state;
 
+    private Varieties varieties;
+
+    public Varieties getVarieties() {
+        return varieties;
+    }
+
+    public void setVarieties(Varieties varieties) {
+        this.varieties = varieties;
+    }
+
     public int getId() {
         return id;
     }
@@ -84,14 +94,6 @@ public class Alcohol {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getPip() {
-        return pip;
-    }
-
-    public void setPip(int pip) {
-        this.pip = pip;
     }
 
     public String getDescribe() {
@@ -220,5 +222,13 @@ public class Alcohol {
 
     public void setState(int state) {
         this.state = state;
+    }
+
+    public int getPid() {
+        return pid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 }
