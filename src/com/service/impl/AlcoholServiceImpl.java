@@ -6,12 +6,15 @@ import com.github.pagehelper.PageInfo;
 import com.mapper.AlcoholMapper;
 import com.service.AlcoholService;
 import com.system.util.DataTables;
+import com.system.util.RequestStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @类描述： 酒的实现层
@@ -42,5 +45,16 @@ public class AlcoholServiceImpl implements AlcoholService{
         dataTables.setRecordsFiltered(pageInfo.getTotal());
         dataTables.setData(pageInfo.getList() != null ? pageInfo.getList() : new ArrayList<Object>());
         return dataTables;
+    }
+
+    @Override
+    public Map<String, Object> insertAlcohol(Alcohol alcohol) {
+        Map<String, Object> map = new HashMap<String, Object>();
+        if (alcoholMapper.insertAlcohol(alcohol) > 0) {
+            map.put("status", RequestStatus.SUCCESS);
+        }else{
+            map.put("status", RequestStatus.FAIL);
+        }
+        return map;
     }
 }

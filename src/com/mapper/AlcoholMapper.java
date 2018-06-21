@@ -14,4 +14,7 @@ public interface AlcoholMapper {
 
     //分页显示所有酒
     List<Alcohol> showPageAlcohol(@Param("search") String search, @Param("subSQL") String subSQL);
+
+    //插入酒
+    int insertAlcohol(Alcohol alcohol);
 }

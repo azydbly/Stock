@@ -67,8 +67,9 @@ public class LoginController {
 		request.setCharacterEncoding("utf-8");
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
-		String prefix = "/WEB-INF/site/";
-		
+		//String prefix = "/WEB-INF/site/";
+		String prefix = "D:/devSoft/Resources/";
+
 		Employee e = (Employee)request.getSession().getAttribute("employee");
 		
 		//更改密码
@@ -97,7 +98,8 @@ public class LoginController {
 			//判断上传的头像是否为空
 			if (!"".equals(request.getParameter("uploadfile"))) {
 				//上传路径
-				String pathName = request.getSession().getServletContext().getRealPath(prefix + "upload/picture");
+				//String pathName = request.getSession().getServletContext().getRealPath(prefix + "upload/picture");
+				String pathName = prefix + "upload/picture";
 				File path = new File(pathName);
 				// 如果目录不存在，则创建该目录!
 				if (!path.exists()) {
@@ -154,7 +156,8 @@ public class LoginController {
 		OutputStream os = response.getOutputStream();
 		ServletContext sc = request.getSession().getServletContext();
 		//显示服务器上的图片需要获取在磁盘上的绝对路径
-		File file = new File(sc.getRealPath("/") + "WEB-INF/site/upload/picture/" + ((Employee) session.getAttribute("employee")).getUrl());
+		//File file = new File(sc.getRealPath("/") + "WEB-INF/site/upload/picture/" + ((Employee) session.getAttribute("employee")).getUrl());
+		File file = new File("D:/devSoft/Resources/upload/picture/" + ((Employee) session.getAttribute("employee")).getUrl());
 		FileInputStream fips = new FileInputStream(file);
 		byte[] btImg = readStream(fips);
 		os.write(btImg);

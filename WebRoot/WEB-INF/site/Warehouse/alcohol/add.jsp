@@ -138,7 +138,7 @@ $("#form-member-add").validate({
 	submitHandler:function(form){
 		$(form).ajaxSubmit({
 			type: "post",
-			url: "insertVarieties.action",
+			url: "insertAlcohol.action",
 			data: $(form).serialize(),
 			dataType: "json",
 			success: function(data) {

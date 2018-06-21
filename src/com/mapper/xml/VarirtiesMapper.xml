@@ -33,7 +33,7 @@
 
     <!-- 修改种类状态  -->
     <update id="updateVarietiesState" parameterType="com.entity.Varieties">
-        update <include refid="TableName" /> set state = #{state} where id = #{id}
+        update <include refid="TableName" /> set state = #{state},updatedatetime = #{updatedatetime} where id = #{id}
     </update>
 
 	<!-- 根据id查询种类 -->

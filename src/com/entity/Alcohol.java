@@ -28,11 +28,11 @@ public class Alcohol {
 
     //创建时间
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date insertdatetime;
+    private String insertdatetime;
 
     //更新时间
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    private Date updatedatetime;
+    private String updatedatetime;
 
     //每箱几瓶
     private int boxNumber;
@@ -70,15 +70,8 @@ public class Alcohol {
     //标识
     private int state;
 
+    //种类的实体类
     private Varieties varieties;
-
-    public Varieties getVarieties() {
-        return varieties;
-    }
-
-    public void setVarieties(Varieties varieties) {
-        this.varieties = varieties;
-    }
 
     public int getId() {
         return id;
@@ -94,6 +87,14 @@ public class Alcohol {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public int getPid() {
+        return pid;
+    }
+
+    public void setPid(int pid) {
+        this.pid = pid;
     }
 
     public String getDescribe() {
@@ -112,19 +113,19 @@ public class Alcohol {
         this.url = url;
     }
 
-    public Date getInsertdatetime() {
+    public String getInsertdatetime() {
         return insertdatetime;
     }
 
-    public void setInsertdatetime(Date insertdatetime) {
+    public void setInsertdatetime(String insertdatetime) {
         this.insertdatetime = insertdatetime;
     }
 
-    public Date getUpdatedatetime() {
+    public String getUpdatedatetime() {
         return updatedatetime;
     }
 
-    public void setUpdatedatetime(Date updatedatetime) {
+    public void setUpdatedatetime(String updatedatetime) {
         this.updatedatetime = updatedatetime;
     }
 
@@ -224,11 +225,11 @@ public class Alcohol {
         this.state = state;
     }
 
-    public int getPid() {
-        return pid;
+    public Varieties getVarieties() {
+        return varieties;
     }
 
-    public void setPid(int pid) {
-        this.pid = pid;
+    public void setVarieties(Varieties varieties) {
+        this.varieties = varieties;
     }
 }

@@ -83,6 +83,9 @@ $(function() {
 		}, {
 			data: "url",
 			defaultContent: "",
+			render: function (data,type,row,meta) {
+				return "<img width='210' class='picture-thumb' src='" + text[date] + "'>";
+            }
         }, {
 			data: "name",
 			defaultContent: "",

@@ -71,10 +71,11 @@ public class VarietiesController {
     @ResponseBody
     @RequestMapping(value = "/updVarietiesState.action", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public String updVarietiesState(int id,int flag){
-        Varieties Varieties = new Varieties();
-        Varieties.setState(flag);
-        Varieties.setId(id);
-        return JSONObject.toJSONString(varirtiesService.updateVarietiesState(Varieties));
+        Varieties varieties = new Varieties();
+        varieties.setState(flag);
+        varieties.setId(id);
+        varieties.setUpdatedatetime(simpleDateFormat.format(date));
+        return JSONObject.toJSONString(varirtiesService.updateVarietiesState(varieties));
     }
 
     //进入修改种类页面
