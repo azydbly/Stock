@@ -53,11 +53,6 @@
 		select <include refid="selectColumn" /> from <include refid="TableName" /> where id = #{id}
 	</select>
 	
-	<!-- 根据职位id查询用户 -->
-	<select id="selByRoleId" resultType="com.entity.Employee">
-		select <include refid="selectColumn" /> from <include refid="TableName" /> where roleId = #{roleId}
-	</select>
-	
 	<!-- 增加用户 -->
 	<insert id="insEmployee">
 		insert into <include refid="TableName" /> (createDate,loginName,userName,loginPassword,idCard,telphone,email,address) values(#{createDate},#{loginName},#{userName},#{loginPassword},#{idCard},

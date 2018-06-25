@@ -7,7 +7,6 @@
 <body>
 <article class="page-container">
 	<form class="form form-horizontal" id="form-member-add">
-        <input type="hidden" name="level" value="1" />
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
 			<div class="formControls col-xs-8 col-sm-9">
@@ -110,28 +109,28 @@
 <script type="text/javascript" src="${ctxsty}/static/h-ui.admin/js/H-ui.admin.js"></script>
 <script type="text/javascript">
 $("#form-member-add").validate({
-	rules:{
-		name:{
-			required:true,
-			remote:{
-				url:"selVarieties.action",
-				type:"post",
-				data: {
+    /*rules:{
+        name:{
+            required:true,
+            remote:{
+                url:"selVarieties.action",
+                type:"post",
+                data: {
                     name: function(){
-						return $("#name").val();
-					},
-				},
-				dataType: "html",
-				dataFilter: function(data, type) {
-					if (data == "true"){
-						return true;
-					}else{
-						return false;
-					}
-				}
-			}
-		},
-	},
+                        return $("#name").val();
+                    },
+                },
+                dataType: "html",
+                dataFilter: function(data, type) {
+                    if (data == "true"){
+                        return true;
+                    }else{
+                        return false;
+                    }
+                }
+            }
+        },
+    },*/
 	onkeyup:false,
 	focusCleanup:true,
 	success:"valid",

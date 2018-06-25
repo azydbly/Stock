@@ -69,6 +69,7 @@ public class AlcoholController {
     @ResponseBody
     @RequestMapping(value = "/insertAlcohol.action", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public String insertAlcohol(Alcohol alcohol){
+        System.out.println("111111111111111111111");
         alcohol.setInsertdatetime(simpleDateFormat.format(date));
         alcohol.setUpdatedatetime(simpleDateFormat.format(date));
         return JSONObject.toJSONString(alcoholService.insertAlcohol(alcohol));

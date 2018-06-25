@@ -78,7 +78,9 @@
 
     <!-- 添加酒 -->
     <insert id="insertAlcohol" parameterType="com.entity.Alcohol">
-        insert into <include refid="TableName" /> (name,pid,describe,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,insertdatetime,updatedatetime,state) values
+        insert into <include refid="TableName" />
+        (name,pid,describe,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,insertdatetime,updatedatetime,state)
+        values
         (#{name},#{pid},#{describe},#{boxNumber},#{boxPurchasePrice},#{boxPrice},#{boxWholesaleNumber},#{boxWholesalePrice},#{bottlePurchasePrice},#{bottlePrice},#{bottleWholesaleNumber},#{bottleWholesalePrice},#{insertdatetime},#{updatedatetime},#{state})
     </insert>
 </mapper>
