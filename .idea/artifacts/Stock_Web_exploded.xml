@@ -8,77 +8,7 @@
           <element id="module-output" name="Stock" />
         </element>
         <element id="directory" name="lib">
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/aopalliance-1.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/aspectjweaver-1.8.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/c3p0-0.9.5.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-beanutils.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-codec-1.9.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-collections-3.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-collections-3.2.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-dbcp-1.4.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-email-1.4.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-fileupload-1.3.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-io-2.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-io-2.4.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-lang.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-lang3-3.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-logging-1.1.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-logging-1.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-logging-api-1.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-logging.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/commons-pool-1.6.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/dom4j-1.6.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/ehcache-core-2.6.8.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/ezmorph-1.0.6.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/fastjson-1.2.6.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/freemarker.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/gexin-rp-sdk-base-4.0.0.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/gexin-rp-sdk-http-4.0.0.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/gexin-rp-sdk-template-4.0.0.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/gson-2.6.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/hamcrest-core-1.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/httpclient-4.5.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/httpcore-4.4.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/httpmime-4.5.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jackson-annotations-2.8.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jackson-core-2.8.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jackson-databind-2.8.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jimi.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/json-lib-2.4-jdk15.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/json_simple-1.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jsoup-1.8.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jsqlparser-0.9.5.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/jstl.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/junit-4.12.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/logback-classic-1.1.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/logback-core-1.1.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mail-1.4.7.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mchange-commons-java-0.2.10.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mybatis-3.2.8.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mybatis-ehcache-1.0.3.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mybatis-spring-1.2.2.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/mysql-connector-java-5.1.27-bin.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/pagehelper-4.1.6.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/poi-3.13-20150929.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/protobuf-java-2.5.0.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/quartz-2.2.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/quartz-jobs-2.2.1.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/slf4j-api-1.7.7.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/slf4j-jdk14-1.7.7.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-aop-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-aspects-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-beans-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-context-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-context-support-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-core-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-expression-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-jdbc-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-oxm-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-test-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-tx-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-web-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/spring-webmvc-4.1.6.RELEASE.jar" />
-          <element id="file-copy" path="$PROJECT_DIR$/WebRoot/WEB-INF/lib/standard.jar" />
+          <element id="library" level="project" name="lib1" />
         </element>
       </element>
     </root>
