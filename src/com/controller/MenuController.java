@@ -64,6 +64,7 @@ public class MenuController {
 		List<Menu> menuList = menuService.selPid();
 		request.setAttribute("menuList", menuList);
 		return ADD;
+
 	}
 
     //添加菜单
