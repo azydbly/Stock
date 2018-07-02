@@ -55,7 +55,7 @@ public class AlcoholController {
     @ResponseBody
     @RequestMapping(value = "/showPageAlcohol.action", produces = "application/json; charset=utf-8")
     public String showPageAlcohol(@RequestParam(value="state",required=false)String state){
-        state = StringUtils.isEmpty(state) ? "" : ("state=" + state);
+        state = StringUtils.isEmpty(state) ? "" : ("a.state=" + state);
         return JSON.toJSONString(alcoholService.showPageAlcohol(DataTables.getInstance(request,state)));
     }
 
@@ -69,7 +69,6 @@ public class AlcoholController {
     @ResponseBody
     @RequestMapping(value = "/insertAlcohol.action", method = RequestMethod.POST, produces = "application/json; charset=utf-8")
     public String insertAlcohol(Alcohol alcohol){
-        System.out.println("111111111111111111111");
         alcohol.setInsertdatetime(simpleDateFormat.format(date));
         alcohol.setUpdatedatetime(simpleDateFormat.format(date));
         return JSONObject.toJSONString(alcoholService.insertAlcohol(alcohol));

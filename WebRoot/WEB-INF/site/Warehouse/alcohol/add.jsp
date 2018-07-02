@@ -29,7 +29,7 @@
 		<div class="row cl">
 			<label class="form-label col-xs-4 col-sm-3">描述：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <textarea type="text" class="input-text textarea" name="describe"></textarea>
+                <textarea type="text" class="input-text textarea" name="description"></textarea>
             </div>
 		</div>
         <div class="row cl">
@@ -105,7 +105,6 @@
 		</div>
 	</form>
 </article>
-
 <script type="text/javascript" src="${ctxsty}/static/h-ui.admin/js/H-ui.admin.js"></script>
 <script type="text/javascript">
 $("#form-member-add").validate({

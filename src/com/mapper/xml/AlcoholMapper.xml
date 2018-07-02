@@ -8,7 +8,7 @@
         <id property="id" column="id"/>
         <result property="name" column="name"/>
         <result property="pid" column="pid"/>
-        <result property="describe" column="describe"/>
+        <result property="description" column="description"/>
         <result property="url" column="url"/>
         <result property="insertdatetime" javaType="java.util.Date" column="insertdatetime"/>
         <result property="updatedatetime" javaType="java.util.Date" column="updatedatetime"/>
@@ -50,13 +50,13 @@
 
 	<!-- 公众部分 -->
 	<sql id="selectColumn">
-		id,name,pid,describe,url,insertdatetime,updatedatetime,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,
+		id,name,pid,description,url,insertdatetime,updatedatetime,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,
 		bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,surplusBoxNumber,surplusWholesaleNumber,state
 	</sql>
 
-    <!-- 公众部分 -->
+    <!-- 连表查询公众部分 -->
 	<sql id="selectColumn2">
-		a.id,a.name,a.pid,a.describe,a.url,a.insertdatetime,a.updatedatetime,a.boxNumber,a.boxPurchasePrice,a.boxPrice,a.boxWholesaleNumber,a.boxWholesalePrice,
+		a.id,a.name,a.pid,a.description,a.url,a.insertdatetime,a.updatedatetime,a.boxNumber,a.boxPurchasePrice,a.boxPrice,a.boxWholesaleNumber,a.boxWholesalePrice,
 		a.bottlePurchasePrice,a.bottlePrice,a.bottleWholesaleNumber,a.bottleWholesalePrice,a.surplusBoxNumber,a.surplusWholesaleNumber,a.state,b.name as pname
 	</sql>
 
@@ -70,7 +70,7 @@
 				${subSQL}
 			</if>
 			<if test="search != null and search != ''">
-				and INSTR(ifnull(name,''),'${search}') > 0
+				and INSTR(ifnull(a.name,''),'${search}') > 0
 			</if>
 		</where>
 	</select>
@@ -79,8 +79,8 @@
     <!-- 添加酒 -->
     <insert id="insertAlcohol" parameterType="com.entity.Alcohol">
         insert into <include refid="TableName" />
-        (name,pid,describe,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,insertdatetime,updatedatetime,state)
+        (name,pid,description,boxNumber,boxPurchasePrice,boxPrice,boxWholesaleNumber,boxWholesalePrice,bottlePurchasePrice,bottlePrice,bottleWholesaleNumber,bottleWholesalePrice,insertdatetime,updatedatetime,state)
         values
-        (#{name},#{pid},#{describe},#{boxNumber},#{boxPurchasePrice},#{boxPrice},#{boxWholesaleNumber},#{boxWholesalePrice},#{bottlePurchasePrice},#{bottlePrice},#{bottleWholesaleNumber},#{bottleWholesalePrice},#{insertdatetime},#{updatedatetime},#{state})
+        (#{name},#{pid},#{description},#{boxNumber},#{boxPurchasePrice},#{boxPrice},#{boxWholesaleNumber},#{boxWholesalePrice},#{bottlePurchasePrice},#{bottlePrice},#{bottleWholesaleNumber},#{bottleWholesalePrice},#{insertdatetime},#{updatedatetime},#{state})
     </insert>
 </mapper>

@@ -21,7 +21,7 @@ public class Alcohol {
     private int pid;
 
     //描述
-    private String describe;
+    private String description;
 
     //图片地址
     private String url;
@@ -97,12 +97,12 @@ public class Alcohol {
         this.pid = pid;
     }
 
-    public String getDescribe() {
-        return describe;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescribe(String describe) {
-        this.describe = describe;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getUrl() {

@@ -34,7 +34,7 @@ public class AlcoholServiceImpl implements AlcoholService{
     @Override
     public DataTables showPageAlcohol(DataTables dataTables) {
         PageHelper.startPage(dataTables.getPageNum(), dataTables.getLength()); // 核心分页代码
-        PageHelper.orderBy("convert(name using gbk) asc");
+        PageHelper.orderBy("convert(a.name using gbk) asc");
 
         if (!StringUtils.isEmpty(dataTables.getColumn())) {
             PageHelper.orderBy(dataTables.getColumn() + " " + dataTables.getOrder());

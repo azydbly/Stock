@@ -62,8 +62,8 @@ $(function() {
 			url: "showPageAlcohol.action",
 			type: 'post',
 			data: function(d) {
-				d.search = $('#search').val();
-				d.state = $('#state').val();
+				a.search = $('#search').val();
+				a.state = $('#state').val();
 			}
 		},
 		columns: [{
@@ -83,9 +83,9 @@ $(function() {
 		}, {
 			data: "url",
 			defaultContent: "",
-			render: function (data,type,row,meta) {
+			/*render: function (data,type,row,meta) {
 				return "<img width='210' class='picture-thumb' src='" + text[date] + "'>";
-            }
+            }*/
         }, {
 			data: "name",
 			defaultContent: "",
@@ -93,7 +93,7 @@ $(function() {
 			data: "pname",
 			defaultContent: "",
 		}, {
-			data: "describe",
+			data: "description",
 			defaultContent: "",
 		}, {
 			data: "boxNumber",
